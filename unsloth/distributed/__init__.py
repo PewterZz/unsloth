@@ -32,26 +32,40 @@ import torch.distributed as dist
 from packaging.version import Version
 
 # Import distributed components
-from .device_manager import DistributedDeviceManager
-from .distributed_setup import DistributedEnvironmentSetup
+from .device_manager import DeviceManager, DistributedDeviceManager
+from .distributed_setup import (
+    DistributedEnvironmentSetup,
+    DistributedConfig,
+    DistributedBackend,
+    DistributedLoRAConfig
+)
 from .model_parallel import UnslothDistributedModel
 from .utils import (
     is_distributed_available,
     get_distributed_backend,
     setup_distributed_training,
     cleanup_distributed,
-    DistributedConfig,
+    get_world_size,
+    get_rank,
+    is_main_process,
+    enable_distributed_training
 )
 
 __all__ = [
-    "DistributedDeviceManager", 
+    "DistributedConfig",
+    "DistributedBackend",
+    "DistributedLoRAConfig", 
+    "DistributedDeviceManager",
+    "DeviceManager",
     "DistributedEnvironmentSetup",
     "UnslothDistributedModel",
-    "DistributedConfig",
     "is_distributed_available",
     "get_distributed_backend", 
     "setup_distributed_training",
     "cleanup_distributed",
+    "get_world_size",
+    "get_rank", 
+    "is_main_process",
     "enable_distributed_training",
     "UnslothDistributedTrainer",
 ]

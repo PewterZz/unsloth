@@ -360,3 +360,6 @@ class DistributedDeviceManager:
         else:
             warnings.warn("psutil not available. Cannot setup NVMe offload.")
             return None
+
+# Alias for backward compatibility
+DeviceManager = DistributedDeviceManager
